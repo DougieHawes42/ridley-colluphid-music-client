@@ -1,0 +1,13 @@
+@import "../../../display/style/variables";
+
+.songs-container {
+  width: 300px;
+}
+
+.songs-container-darkmode {
+  background-color: $colour02;
+}
+
+.songs-container-lightmode {
+  background-color: $colour07;
+}
