@@ -1,6 +1,8 @@
 @import "./variables";
 
 * {
+  border-style: solid;
+  border-width: 0;
   box-sizing: border-box;
   font-family: $font02;
   margin: 0;
@@ -24,6 +26,7 @@ h6 {
     color: $colour03;
   }
   background-color: $colour01;
+  border-color: $colour03;
 }
 
 .app-lightmode {
@@ -31,4 +34,5 @@ h6 {
     color: $colour08;
   }
   background-color: $colour06;
+  border-color: $colour08;
 }

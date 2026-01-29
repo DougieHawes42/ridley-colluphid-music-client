@@ -1,7 +1,95 @@
 @import "../../display/style/variables";
 
+.header {
+  margin: 0 auto;
+  width: $min-width;
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+  }
+  .header-title-container {
+    text-align: center;
+    .header-title {
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+  }
+}
+
 .mode-toggle {
-  bottom: 0;
+  bottom: 7px;
+  font-size: 28px;
   position: absolute;
-  right: 0;
+  right: 7px;
+}
+
+.music-player {
+  bottom: 7px;
+  left: 7px;
+  max-height: 540px;
+  overflow: hidden;
+  position: absolute;
+  width: 300px;
+  .music-player-selection {
+    .music-player-screen-container {
+      min-height: 300px;
+      padding: 10px;
+      .music-player-screen {
+        background-color: red;
+        border-radius: 42px;
+        height: 280px;
+      }
+    }
+    .music-player-songs-container {
+      max-height: 180px;
+      overflow: hidden;
+      .music-player-songs-song {
+        border-top-width: 1px;
+        height: 60px;
+        padding: 7px;
+      }
+    }
+  }
+  .music-player-collapsed {
+    border-top-width: 2px;
+    height: 60px;
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    width: 100%;
+    .music-player-details-container {
+      .music-player-details {
+        .music-player-current-song {
+          display: flex;
+          justify-content: space-between;
+          max-height: 28px;
+          overflow: hidden;
+          padding: 7px;
+          .music-player-current-song-title,
+          .music-player-current-song-artist {
+            font-size: 14px;
+          }
+          .music-player-current-song-title {
+            max-width: 140px;
+          }
+          .music-player-current-song-artist {
+          }
+        }
+      }
+    }
+    .music-player-toggle-container {
+      padding: 14px 7px;
+      .music-player-toggle-icon {
+        cursor: pointer;
+        font-size: 28px;
+      }
+    }
+  }
+}
+
+.music-player-darkmode {
+  background-color: $colour02;
+}
+
+.music-player-lightmode {
+  background-color: $colour07;
 }
