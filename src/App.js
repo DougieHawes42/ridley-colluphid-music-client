@@ -17,15 +17,15 @@ const App = () => {
 
   return (
     <div className={`app ${darkmodeOn ? "app-darkmode" : "app-lightmode"}`}>
-      <Header />
+      <Header darkmode={darkmodeOn} />
       <Routes>
         <Route path="/" element={<Home darkmode={darkmodeOn} />} />
       </Routes>
+      <MusicPlayer darkmode={darkmodeOn} />
       <ModeToggle
         onClick={() => setDarkmodeOn(!darkmodeOn)}
         darkmode={darkmodeOn}
       />
-      <MusicPlayer darkmode={darkmodeOn} />
     </div>
   );
 };

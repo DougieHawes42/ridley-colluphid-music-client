@@ -1,10 +1,18 @@
 import { useState } from "react";
-import { HiChevronDoubleDown, HiChevronDoubleUp } from "react-icons/hi";
+
+import { FaCaretLeft } from "react-icons/fa";
+import {
+  HiChevronUp,
+  HiChevronDown,
+  HiChevronDoubleDown,
+  HiChevronDoubleUp,
+} from "react-icons/hi";
 
 import "./style.scss";
 
 const MusicPlayer = ({ darkmode }) => {
   const [isOpen, setIsOpen] = useState(true);
+  const [songIndex, setSongIndex] = useState(0);
 
   const songs = [
     { id: 1, title: "Unchain My Heart", originalArtist: "Ray Charles" },
@@ -29,27 +37,77 @@ const MusicPlayer = ({ darkmode }) => {
     },
   ];
 
+  const scrollUp = () => {
+    setSongIndex(songIndex <= 0 ? songs.length - 1 : songIndex - 1);
+  };
+  const scrollDown = () => {
+    setSongIndex(songIndex >= songs.length - 1 ? 0 : songIndex + 1);
+  };
+
   return (
     <div
       className={`music-player ${darkmode ? "music-player-darkmode" : "music-player-lightmode"}`}
     >
       {isOpen && (
-        <div className="music-player-selection">
-          <div className="music-player-screen-container">
-            <div className="music-player-screen"></div>
+        <div
+          className="music-player-outside"
+          onClick={() => setIsOpen(false)}
+        ></div>
+      )}
+      <div
+        className={`music-player-selection ${isOpen ? "music-player-selection-open" : "music-player-selection-closed"}`}
+      >
+        <div className="music-player-screen-container">
+          <div className="music-player-screen"></div>
+        </div>
+        <div className="music-player-songs-container">
+          <div className="music-player-songs-song">
+            <h3 className="music-player-songs-song-title">
+              {songs[songIndex == 0 ? songs.length - 1 : songIndex - 1].title}
+            </h3>
+            <p className="music-player-songs-song-artist">
+              {
+                songs[songIndex == 0 ? songs.length - 1 : songIndex - 1]
+                  .originalArtist
+              }
+            </p>
           </div>
-          <div className="music-player-songs-container">
-            {songs.map((s) => (
-              <div className="music-player-songs-song" key={s.id}>
-                <h3 className="music-player-songs-song-title">{s.title}</h3>
-                <p className="music-player-songs-song-artist">
-                  {s.originalArtist}
-                </p>
-              </div>
-            ))}
+          <div className="music-player-songs-song">
+            <h3 className="music-player-songs-song-title">
+              {songs[songIndex].title}
+            </h3>
+            <p className="music-player-songs-song-artist">
+              {songs[songIndex].originalArtist}
+            </p>
+          </div>
+          <div className="music-player-songs-song">
+            <h3 className="music-player-songs-song-title">
+              {songs[songIndex == songs.length - 1 ? 0 : songIndex + 1].title}
+            </h3>
+            <p className="music-player-songs-song-artist">
+              {
+                songs[songIndex == songs.length - 1 ? 0 : songIndex + 1]
+                  .originalArtist
+              }
+            </p>
+          </div>
+          <div className="music-player-songs-icons">
+            <div className="music-player-songs-icons-left">
+              <FaCaretLeft className="music-player-songs-current-icon" />
+            </div>
+            <div className="music-player-songs-icons-right">
+              <HiChevronUp
+                className="music-player-songs-scroll-icon"
+                onClick={scrollUp}
+              />
+              <HiChevronDown
+                className="music-player-songs-scroll-icon"
+                onClick={scrollDown}
+              />
+            </div>
           </div>
         </div>
-      )}
+      </div>
       <div className="music-player-collapsed">
         <div
           className="music-player-toggle-container"
@@ -66,10 +124,12 @@ const MusicPlayer = ({ darkmode }) => {
             <div className="music-player-current-song">
               <div className="music-player-current-song-title-container">
                 <h3 className="music-player-current-song-title">
-                  Unchain My Heart
+                  {songs[songIndex].title}
                 </h3>
               </div>
-              <p className="music-player-current-song-artist">Ray Charles</p>
+              <p className="music-player-current-song-artist">
+                {songs[songIndex].originalArtist}
+              </p>
             </div>
           </div>
         </div>
