@@ -59,8 +59,12 @@ const MusicPlayer = ({ darkmode }) => {
       >
         <div className="music-player-screen-container">
           <div className="music-player-screen"></div>
+          <div className="music-player-centre"></div>
         </div>
         <div className="music-player-songs-container">
+          <div className="music-player-songs-top-glow">
+            subliminal message... woooohooohooohooo!!!!
+          </div>
           <div className="music-player-songs-song">
             <h3 className="music-player-songs-song-title">
               {songs[songIndex == 0 ? songs.length - 1 : songIndex - 1].title}
