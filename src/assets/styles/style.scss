@@ -1,0 +1,24 @@
+@import "variables.scss";
+@import "mixins.scss";
+
+* {
+  box-sizing: border-box;
+  font-family: $text-font;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  @include full-height;
+  &.app-dark-mode {
+    background: url("../media/dark-background.png") no-repeat center center;
+    background-size: cover;
+    color: $text-colour-dark;
+  }
+
+  &.app-light-mode {
+    background: url("../media/light-background.png") no-repeat center center;
+    background-size: cover;
+    color: $text-colour-light;
+  }
+}

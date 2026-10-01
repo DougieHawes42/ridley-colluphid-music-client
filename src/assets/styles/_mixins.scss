@@ -1,0 +1,9 @@
+@mixin full-height {
+  max-height: 100vh;
+  min-height: 100vh;
+}
+@mixin transition {
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
+}
