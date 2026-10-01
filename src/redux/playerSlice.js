@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  showing: true,
+  showing: false,
 };
 
 const playerSlice = createSlice({

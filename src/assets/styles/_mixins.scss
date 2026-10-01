@@ -5,7 +5,8 @@
 @mixin transition {
   transition:
     color 1.4s ease,
-    background-color 1.4s ease;
+    background-color 1.4s ease,
+    border-color 1.4s ease;
 }
 @mixin center {
   margin-left: 50%;

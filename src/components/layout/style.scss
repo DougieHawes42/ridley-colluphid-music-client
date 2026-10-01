@@ -58,7 +58,9 @@
 .mode-toggle.light {
   background-color: $button-background-colour-light;
   .mode-toggle-icon {
-    color: $border-subtle-colour-light;
+    * {
+      color: $button-background-soft-colour-light;
+    }
   }
   .toggle-slider {
     .slider-thumb {
@@ -89,51 +91,80 @@
 }
 
 .music-player {
-  border-radius: $player-width/2 $player-width/2 0 0;
-  border-style: solid;
-  border-width: 2px 2px 0 2px;
-  bottom: 0;
-  left: $padding1;
-  min-height: calc(#{$player-width} + #{$player-controls-height});
-  position: absolute;
-  width: $player-width;
   .music-player-record {
-    background-color: $border-colour-light;
+    background-color: $text-colour-light;
     border-radius: 50%;
-    height: calc(#{$player-width} - #{$padding1} * 2);
-    margin: $padding1 auto;
-    position: relative;
-    width: calc(#{$player-width} - #{$padding1} * 2);
+    border-style: solid;
+    border-width: 2px;
+    bottom: $player-controls-height;
+    left: $padding1;
+    min-height: $player-controls-height * 3;
+    position: absolute;
+    transition:
+      bottom 0.3s ease,
+      background-color 0.3s ease;
+    width: $player-width;
     .music-player-record-inner {
+      background-color: white;
       border-radius: 50%;
-      height: 42%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 42%;
+      margin: $padding1;
+      min-height: calc($player-width - #{$padding1 * 2});
     }
     .music-player-record-center {
+      background-color: $text-colour-light;
       border-radius: 50%;
-      height: 10%;
+      height: $player-width / 3;
+      left: 50%;
       position: absolute;
       top: 50%;
-      left: 50%;
       transform: translate(-50%, -50%);
-      width: 10%;
+      width: $player-width / 3;
+    }
+    .music-player-record-hole {
+      background-color: $text-colour-dark;
+      border-radius: 50%;
+      height: $player-width / 12;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: $player-width / 12;
     }
   }
-  .music-player-record-needle {
-    bottom: $player-controls-height + $padding1;
-    height: $player-width / 2;
+  .music-player-record.hidden {
+    bottom: -$player-controls-height * 3;
+  }
+  .music-player-selection {
+    background-color: $text-colour-light;
+    border-style: solid;
+    border-width: 2px 2px 0 2px;
+    bottom: $player-controls-height;
+    left: $padding1;
+    min-height: $player-controls-height * 1.5;
     position: absolute;
-    right: 28px;
-    transform: rotate(-15deg);
-    width: $padding1;
+    transition: bottom 0.3s ease;
+    width: $player-width;
+    .music-player-selection-track {
+      height: 50px;
+    }
+    .music-player-selection-track.current {
+      border-width: 2px 0;
+      border-style: solid;
+    }
+  }
+  .music-player-selection.hidden {
+    bottom: -$player-controls-height * 1.5;
   }
   .music-player-controls {
-    height: $player-controls-height;
+    background-color: $text-colour-light;
+    border-width: 2px 2px 0 2px;
+    border-style: solid;
+    left: $padding1;
+    min-height: $player-controls-height;
+    min-width: $player-width;
     padding: $padding1;
+    position: absolute;
+    bottom: 0;
     .music-player-controls-playing {
       .music-player-controls-playing-song {
         display: flex;
@@ -148,51 +179,30 @@
       }
     }
     .music-player-controls-toggle {
-      position: absolute;
       bottom: $padding1;
+      cursor: pointer;
+      position: absolute;
       right: $padding1;
     }
   }
 }
-.music-player.dark {
-  background-color: $text-colour-light;
-  border-color: $button-background-colour-dark;
-  .music-player-record {
-    background-color: white;
-    .music-player-record-inner {
-      background-color: $text-colour-light;
+.music-player {
+  &.dark {
+    * {
+      border-color: $button-background-colour-dark !important;
+      color: $text-colour-dark;
     }
-    .music-player-record-center {
+    .music-player-record-hole {
       background-color: $button-background-colour-dark;
     }
   }
-  .music-player-record-needle {
-    background-color: $button-background-colour-dark;
-  }
-  .music-player-controls {
+  &.light {
     * {
-      color: $border-subtle-colour-light;
+      border-color: $button-background-colour-light !important;
+      color: $button-background-soft-colour-light !important;
     }
-  }
-}
-.music-player.light {
-  background-color: $text-colour-light;
-  border-color: $button-background-colour-light;
-  .music-player-record {
-    background-color: white;
-    .music-player-record-inner {
-      background-color: $text-colour-light;
-    }
-    .music-player-record-center {
+    .music-player-record-hole {
       background-color: $button-background-colour-light;
-    }
-  }
-  .music-player-record-needle {
-    background-color: $button-background-colour-light;
-  }
-  .music-player-controls {
-    * {
-      color: $text-colour-dark;
     }
   }
 }

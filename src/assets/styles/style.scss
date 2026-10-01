@@ -12,6 +12,7 @@
 
 .app {
   @include full-height;
+  overflow: hidden;
   &.app-dark-mode {
     background: url("../media/dark-background.png") no-repeat center center;
     background-size: cover;
