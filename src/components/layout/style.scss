@@ -13,10 +13,8 @@
   position: absolute;
   right: $padding1;
   width: 35px;
-  @include transition;
   .mode-toggle-icon {
     font-size: 28px;
-    @include transition;
   }
   .toggle-slider {
     align-items: center;
@@ -39,7 +37,6 @@
       border-radius: 10px;
       height: 100%;
       width: 4px;
-      @include transition;
     }
   }
 }
@@ -75,25 +72,26 @@
 }
 
 .header {
-  text-align: center;
   .header-title {
     font-family: $display-font;
-    font-size: 42px;
-    letter-spacing: 6px;
+    font-size: 70px;
+    letter-spacing: 7px;
     margin: 0;
-    @include transition;
+    text-align: center;
+    @include center;
   }
 }
-.header-dark-mode {
+.header.dark {
   color: $text-colour-dark;
 }
-.header-light-mode {
+.header.light {
   color: $text-colour-light;
 }
 
 .music-player {
-  background-color: $button-background-colour-light;
   border-radius: $player-width/2 $player-width/2 0 0;
+  border-style: solid;
+  border-width: 2px 2px 0 2px;
   bottom: 0;
   left: $padding1;
   min-height: calc(#{$player-width} + #{$player-controls-height});
@@ -107,7 +105,6 @@
     position: relative;
     width: calc(#{$player-width} - #{$padding1} * 2);
     .music-player-record-inner {
-      background-color: $button-background-colour-light;
       border-radius: 50%;
       height: 42%;
       position: absolute;
@@ -117,7 +114,6 @@
       width: 42%;
     }
     .music-player-record-center {
-      background-color: black;
       border-radius: 50%;
       height: 10%;
       position: absolute;
@@ -128,7 +124,6 @@
     }
   }
   .music-player-record-needle {
-    background-color: $text-colour-light;
     bottom: $player-controls-height + $padding1;
     height: $player-width / 2;
     position: absolute;
@@ -156,6 +151,66 @@
       position: absolute;
       bottom: $padding1;
       right: $padding1;
+    }
+  }
+}
+.music-player.dark {
+  background-color: $text-colour-light;
+  border-color: $button-background-colour-dark;
+  .music-player-record {
+    background-color: white;
+    .music-player-record-inner {
+      background-color: $text-colour-light;
+    }
+    .music-player-record-center {
+      background-color: $button-background-colour-dark;
+    }
+  }
+  .music-player-record-needle {
+    background-color: $button-background-colour-dark;
+  }
+  .music-player-controls {
+    * {
+      color: $border-subtle-colour-light;
+    }
+  }
+}
+.music-player.light {
+  background-color: $text-colour-light;
+  border-color: $button-background-colour-light;
+  .music-player-record {
+    background-color: white;
+    .music-player-record-inner {
+      background-color: $text-colour-light;
+    }
+    .music-player-record-center {
+      background-color: $button-background-colour-light;
+    }
+  }
+  .music-player-record-needle {
+    background-color: $button-background-colour-light;
+  }
+  .music-player-controls {
+    * {
+      color: $text-colour-dark;
+    }
+  }
+}
+
+.navbar {
+  display: flex;
+  gap: 21px;
+  justify-content: center;
+  margin-top: -14px;
+  width: 100%;
+  @include center;
+}
+
+@media only screen and (max-width: 599px) {
+  .header {
+    .header-title {
+      font-size: 42px;
+      letter-spacing: 6px;
     }
   }
 }

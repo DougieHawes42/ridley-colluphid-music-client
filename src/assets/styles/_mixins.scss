@@ -4,6 +4,10 @@
 }
 @mixin transition {
   transition:
-    color 0.3s ease,
-    background-color 0.3s ease;
+    color 1.4s ease,
+    background-color 1.4s ease;
+}
+@mixin center {
+  margin-left: 50%;
+  transform: translateX(-50%);
 }

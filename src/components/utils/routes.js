@@ -9,8 +9,8 @@ export const AuthRoute = ({ children, title }) => {
     return <Navigate to={`${process.env.REACT_APP_PRIVATE_ROUTE}/dashboard`} />;
 
   return (
-    <div>
-      <h2>{title}</h2>
+    <div className="route">
+      <h2 className="route-title">{title}</h2>
       {children}
     </div>
   );
@@ -23,18 +23,13 @@ export const PrivateRoute = ({ children, title }) => {
     return <Navigate to={`${process.env.REACT_APP_PUBLIC_ROUTE}/signin`} />;
 
   return (
-    <div>
-      <h2>{title}</h2>
+    <div className="route">
+      <h2 className="route-title">{title}</h2>
       {children}
     </div>
   );
 };
 
-export const PublicRoute = ({ children, title }) => {
-  return (
-    <div>
-      <h2>{title}</h2>
-      {children}
-    </div>
-  );
+export const PublicRoute = ({ children }) => {
+  return <div className="route">{children}</div>;
 };

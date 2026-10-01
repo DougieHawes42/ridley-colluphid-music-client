@@ -1,1 +1,12 @@
 @import "../../assets/styles/variables.scss";
+
+.route {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-link {
+  font-family: $display-font;
+  font-size: 35px;
+}

@@ -6,6 +6,8 @@
   font-family: $text-font;
   margin: 0;
   padding: 0;
+  text-decoration: none;
+  @include transition;
 }
 
 .app {
@@ -13,12 +15,16 @@
   &.app-dark-mode {
     background: url("../media/dark-background.png") no-repeat center center;
     background-size: cover;
-    color: $text-colour-dark;
+    * {
+      color: $text-colour-dark;
+    }
   }
 
   &.app-light-mode {
     background: url("../media/light-background.png") no-repeat center center;
     background-size: cover;
-    color: $text-colour-light;
+    * {
+      color: $text-colour-light;
+    }
   }
 }

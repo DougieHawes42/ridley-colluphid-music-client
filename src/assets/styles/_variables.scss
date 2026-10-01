@@ -3,20 +3,20 @@
   src: url("../fonts/BebasNeue-Regular.ttf");
 }
 
-$text-colour-light: #181914;
+$text-colour-light: #181818;
 $text-muted-colour-light: #625f55;
 $border-colour-light: #2a2c25;
 $border-subtle-colour-light: #c9c3b6;
-$button-background-colour-light: #176b45;
-$button-background-hover-colour-light: #0e4f32;
+$button-background-colour-light: forestgreen;
+$button-background-hover-colour-light: #636b2f;
 $button-background-soft-colour-light: #cfe3d7;
 
 $text-colour-dark: #f1eee5;
 $text-muted-colour-dark: #a7a99e;
 $border-colour-dark: #454a42;
 $border-subtle-colour-dark: #292f2a;
-$button-background-colour-dark: #35c878;
-$button-background-hover-colour-dark: #62e39a;
+$button-background-colour-dark: magenta;
+$button-background-hover-colour-dark: #ff1d8d;
 $button-background-soft-colour-dark: #173c2a;
 
 $display-font: "BebasNeue", sans-serif;
@@ -24,5 +24,5 @@ $text-font: "Montserrat", sans-serif;
 
 $padding1: 7px;
 
-$player-width: 300px;
+$player-width: 290px;
 $player-controls-height: 100px;

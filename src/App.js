@@ -12,6 +12,9 @@ import MusicPlayer from "./components/layout/MusicPlayer.js";
 import SignIn from "./components/routes/auth/SignIn.js";
 // public routes
 import Home from "./components/routes/public/Home.js";
+import About from "./components/routes/public/About.js";
+import Blog from "./components/routes/public/Blog.js";
+import Contact from "./components/routes/public/Contact.js";
 
 const App = () => {
   const theme = useSelector((state) => state.theme.theme);
@@ -23,6 +26,9 @@ const App = () => {
       <Routes>
         {/* public */}
         <Route path={"/"} element={<Home />} />
+        <Route path={"/about"} element={<About />} />
+        <Route path={"/blog"} element={<Blog />} />
+        <Route path={"/contact"} element={<Contact />} />
         {/* auth */}
         <Route
           path={`${process.env.REACT_APP_PRIVATE_ROUTE}/sign-in`}
