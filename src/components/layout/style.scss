@@ -86,9 +86,11 @@
 }
 .header.dark {
   color: $text-colour-dark;
+  text-shadow: 0 7px 42px rgba($button-background-colour-dark, 0.5);
 }
 .header.light {
   color: $text-colour-light;
+  text-shadow: 0 21px 42px rgba($button-background-colour-light, 0.5);
 }
 .music-player {
   .music-player-record {

@@ -50,7 +50,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.8 }}>
             <p>
-              <span>Talk is cheap</span>, but singing is priceless.
+              <span>Talk is cheap</span>, and singing is priceless.
             </p>
             <p>
               <span>Words have power</span>, yet music is indestructible.
@@ -59,8 +59,8 @@ const About = () => {
               <span>Carve words onto a wall</span>, or sing them into eternity.
             </p>
             <p>
-              <span>Heroes have lived only 27 years</span>, yet their souls are
-              going anywhere.
+              <span>Heroes have lived only 27 years</span>, but their souls
+              aren't going anywhere.
             </p>
           </motion.div>
         </section>

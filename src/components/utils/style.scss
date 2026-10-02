@@ -9,3 +9,167 @@
   font-family: $display-font;
   font-size: 35px;
 }
+
+.blog-card {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 120px;
+
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
+  gap: 80px;
+  align-items: center;
+
+  &-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &-date {
+    margin: 0 0 18px;
+
+    font-family: $text-font;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  &-title {
+    margin: 0;
+
+    font-family: $display-font;
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+  }
+
+  &-subtitle {
+    max-width: 600px;
+    margin: 20px 0 30px;
+
+    font-family: $text-font;
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  &-body {
+    max-width: 650px;
+
+    p {
+      margin: 0;
+
+      font-family: $text-font;
+      font-size: 0.95rem;
+      line-height: 1.85;
+    }
+  }
+
+  .blog-card-content {
+    &.right {
+      align-items: flex-end;
+      text-align: right;
+    }
+  }
+
+  &.light {
+    color: $text-colour-light;
+
+    .blog-card-date,
+    .blog-card-subtitle {
+      color: $text-muted-colour-light;
+    }
+
+    .blog-card-body {
+      color: $text-colour-light;
+    }
+  }
+
+  &.dark {
+    color: $text-colour-dark;
+
+    .blog-card-date,
+    .blog-card-subtitle {
+      color: $text-muted-colour-dark;
+    }
+
+    .blog-card-body {
+      color: $text-colour-dark;
+    }
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: minmax(250px, 1fr) minmax(250px, 1fr);
+    gap: 45px;
+    margin-bottom: 100px;
+
+    &-title {
+      font-size: clamp(3rem, 6vw, 4.5rem);
+    }
+
+    &-subtitle {
+      font-size: 1rem;
+    }
+
+    &-body {
+      p {
+        font-size: 0.9rem;
+        line-height: 1.75;
+      }
+    }
+  }
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 80px;
+
+    &-image {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    &-content {
+      width: 100%;
+    }
+
+    &-title {
+      font-size: clamp(3rem, 14vw, 5rem);
+    }
+
+    &-subtitle {
+      margin: 18px 0 25px;
+      font-size: 0.95rem;
+    }
+
+    &-body {
+      p {
+        font-size: 0.9rem;
+        line-height: 1.8;
+      }
+    }
+  }
+}
+
+.blog-card2 {
+  .blog-card-content {
+    align-items: flex-end;
+    text-align: right;
+  }
+}
