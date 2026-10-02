@@ -12,9 +12,9 @@
 
 .app {
   @include full-height;
-  overflow: hidden;
   &.app-dark-mode {
-    background: url("../media/dark-background.png") no-repeat center center;
+    background: url("../media/layout-images/dark-background.png") no-repeat
+      center center;
     background-size: cover;
     * {
       color: $text-colour-dark;
@@ -22,7 +22,8 @@
   }
 
   &.app-light-mode {
-    background: url("../media/light-background.png") no-repeat center center;
+    background: url("../media/layout-images/light-background.png") no-repeat
+      center center;
     background-size: cover;
     * {
       color: $text-colour-light;

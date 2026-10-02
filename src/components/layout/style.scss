@@ -80,6 +80,7 @@
     letter-spacing: 7px;
     margin: 0;
     text-align: center;
+    width: 100%;
     @include center;
   }
 }
@@ -105,7 +106,8 @@
       background-color 0.3s ease;
     width: $player-width;
     .music-player-record-inner {
-      background-color: white;
+      background-size: cover;
+      background-position: center;
       border-radius: 50%;
       margin: $padding1;
       min-height: calc($player-width - #{$padding1 * 2});
@@ -113,6 +115,8 @@
     .music-player-record-center {
       background-color: $text-colour-light;
       border-radius: 50%;
+      border-style: solid;
+      border-width: 2px;
       height: $player-width / 3;
       left: 50%;
       position: absolute;
@@ -131,6 +135,20 @@
       width: $player-width / 12;
     }
   }
+  .music-player-record.playing {
+    .music-player-record-inner {
+      animation: spin 21s linear infinite;
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
   .music-player-record.hidden {
     bottom: -$player-controls-height * 3;
   }
@@ -146,10 +164,31 @@
     width: $player-width;
     .music-player-selection-track {
       height: 50px;
+      padding: $padding1;
+      .music-player-selection-track-title {
+        font-weight: bold;
+      }
+      .music-player-selection-track-artist {
+        font-size: 14px;
+      }
     }
     .music-player-selection-track.current {
       border-width: 2px 0;
       border-style: solid;
+    }
+    .music-player-selection-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: $padding1;
+      height: $player-controls-height * 0.5;
+      padding-top: 1px;
+      position: absolute;
+      right: $padding1;
+      top: $player-controls-height * 0.5;
+      .music-player-selection-button {
+        cursor: pointer;
+        font-size: 21px;
+      }
     }
   }
   .music-player-selection.hidden {
@@ -160,21 +199,68 @@
     border-width: 2px 2px 0 2px;
     border-style: solid;
     left: $padding1;
+    max-width: $player-width;
     min-height: $player-controls-height;
     min-width: $player-width;
     padding: $padding1;
     position: absolute;
     bottom: 0;
     .music-player-controls-playing {
+      width: 100%;
+      max-width: $player-width;
       .music-player-controls-playing-song {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        width: 100%;
+        max-width: 100%;
         .music-player-controls-playing-title {
+          min-width: 0;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
           font-size: 16px;
           font-weight: bold;
         }
         .music-player-controls-playing-artist {
+          white-space: nowrap;
           font-size: 14px;
+          margin-left: 8px;
+        }
+      }
+    }
+    .music-player-controls-progress {
+      .music-player-controls-progress-upper {
+        display: grid;
+        grid-template-columns: 1fr 84px;
+        margin-top: $padding1;
+        .music-player-controls-progress-buttons {
+          display: grid;
+          grid-template-columns: repeat(7, auto);
+          justify-content: space-between;
+          * {
+            cursor: pointer;
+          }
+        }
+        .music-player-controls-progress-time {
+          padding-left: $padding1;
+        }
+      }
+      .music-player-controls-progress-bar-container {
+        height: $padding1 * 3;
+        position: relative;
+        .music-player-controls-progress-bar {
+          height: $padding1;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 100%;
+        }
+        .music-player-controls-progress-bar-tag {
+          position: absolute;
+          left: 0;
+          width: $padding1;
+          height: $padding1 * 3;
+          top: 0;
         }
       }
     }
@@ -195,6 +281,36 @@
     .music-player-record-hole {
       background-color: $button-background-colour-dark;
     }
+    .music-player-selection-buttons {
+      * {
+        color: $button-background-colour-dark;
+      }
+    }
+    .music-player-controls-progress {
+      .music-player-controls-progress-buttons {
+        * {
+          color: $button-background-colour-dark;
+        }
+        .music-player-controls-shuffle-button {
+          &.not-active {
+            * {
+              color: $text-colour-dark;
+            }
+          }
+        }
+      }
+      .music-player-controls-progress-bar-container {
+        .music-player-controls-progress-bar {
+          background-color: $text-colour-dark;
+        }
+        .music-player-controls-progress-bar-tag {
+          background-color: $button-background-colour-dark;
+        }
+      }
+    }
+    .music-player-controls-toggle {
+      color: $button-background-colour-dark;
+    }
   }
   &.light {
     * {
@@ -203,6 +319,38 @@
     }
     .music-player-record-hole {
       background-color: $button-background-colour-light;
+    }
+    .music-player-selection-buttons {
+      * {
+        color: $button-background-colour-light !important;
+      }
+    }
+    .music-player-controls-progress {
+      .music-player-controls-progress-buttons {
+        * {
+          color: $button-background-colour-light !important;
+        }
+        .music-player-controls-shuffle-button {
+          &.not-active {
+            * {
+              color: $button-background-soft-colour-light !important;
+            }
+          }
+        }
+      }
+      .music-player-controls-progress-bar-container {
+        position: relative;
+        .music-player-controls-progress-bar {
+          background-color: $button-background-soft-colour-light;
+        }
+        .music-player-controls-progress-bar-tag {
+          background-color: $button-background-colour-light;
+          position: absolute;
+        }
+      }
+    }
+    .music-player-controls-toggle {
+      color: $button-background-colour-light !important;
     }
   }
 }
