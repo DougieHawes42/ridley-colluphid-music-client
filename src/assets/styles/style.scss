@@ -1,6 +1,14 @@
 @import "variables.scss";
 @import "mixins.scss";
 
+*::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 * {
   box-sizing: border-box;
   font-family: $text-font;

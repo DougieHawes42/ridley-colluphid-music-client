@@ -1,4 +1,961 @@
 @import "../../../assets/styles/style.scss";
 
-.home {
+.home-hero {
+  position: relative;
+  min-height: 75vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 70px 8%;
+  .home-hero-glow {
+    position: absolute;
+    z-index: -1;
+    width: 550px;
+    height: 550px;
+    right: 5%;
+    top: 10%;
+    border-radius: 50%;
+    filter: blur(30px);
+  }
+  .home-hero-grain {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.12;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+  }
+  .home-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+  }
+  .home-hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+  }
+  .home-hero-line {
+    width: 35px;
+    height: 1px;
+  }
+  .home-hero-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(65px, 10vw, 125px);
+    line-height: 0.78;
+    letter-spacing: 2px;
+    margin: 0;
+    span {
+      display: block;
+    }
+  }
+  .home-hero-subtitle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-top: 35px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    i {
+      font-style: normal;
+    }
+  }
+  .home-hero-description {
+    font-size: 15px;
+    line-height: 1.9;
+    margin: 25px 0 35px;
+  }
+  .home-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .home-hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    padding: 15px 24px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &.primary {
+      &:hover {
+        transform: translateY(-3px);
+      }
+    }
+
+    &.secondary {
+      &:hover {
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  .home-hero-vinyl {
+    position: absolute;
+    z-index: 1;
+    width: clamp(220px, 34vw, 460px);
+    aspect-ratio: 1;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.85;
+    pointer-events: none;
+  }
+
+  .home-hero-vinyl-disc {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+  }
+
+  .home-hero-vinyl-label {
+    width: 34%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+
+    span {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(25px, 4vw, 45px);
+    }
+  }
+
+  .home-hero-footer {
+    position: absolute;
+    bottom: 25px;
+    left: 8%;
+    right: 8%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+}
+
+.home-hero.dark {
+  .home-hero-glow {
+    background: radial-gradient(
+      circle,
+      rgba($button-background-hover-colour-dark, 0.15),
+      transparent 70%
+    );
+  }
+  .home-hero-eyebrow {
+    color: $button-background-colour-dark;
+  }
+  .home-hero-line {
+    background: $button-background-colour-dark;
+  }
+  .home-hero-title {
+    color: $text-colour-dark;
+    span {
+      color: $button-background-colour-dark;
+    }
+  }
+  .home-hero-subtitle {
+    color: $text-muted-colour-dark;
+    i {
+      color: $button-background-colour-dark;
+    }
+  }
+  .home-hero-description {
+    color: $text-muted-colour-dark;
+  }
+  .home-hero-button {
+    &.primary {
+      background: $button-background-colour-dark;
+      color: #171513;
+
+      &:hover {
+        background: $button-background-hover-colour-dark;
+        transform: translateY(-3px);
+      }
+    }
+    &.secondary {
+      border: 1px solid rgba($button-background-colour-dark, 0.5);
+      color: $text-colour-dark;
+
+      &:hover {
+        border-color: $button-background-colour-dark;
+        color: $button-background-colour-dark;
+      }
+    }
+  }
+  .home-hero-vinyl-disc {
+    background: repeating-radial-gradient(
+      circle,
+      $border-subtle-colour-dark 0px,
+      $border-subtle-colour-dark 2px,
+      $border-colour-dark 3px,
+      $border-subtle-colour-dark 4px
+    );
+    border: 1px solid #39342c;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
+  }
+  .home-hero-vinyl-label {
+    background: $button-background-hover-colour-dark;
+    border: 5px solid #24211d;
+    span {
+      color: #171513;
+    }
+  }
+  .home-hero-footer {
+    border-top: 1px solid rgba($button-background-colour-dark, 0.25);
+    color: #8c8171;
+  }
+}
+
+.home-hero.light {
+  .home-hero-glow {
+    background: radial-gradient(
+      circle,
+      rgba($button-background-hover-colour-light, 0.15),
+      transparent 70%
+    );
+  }
+  .home-hero-eyebrow {
+    color: $button-background-colour-light;
+  }
+  .home-hero-line {
+    background: $button-background-colour-light;
+  }
+  .home-hero-title {
+    color: $text-colour-light;
+    span {
+      color: $button-background-colour-light;
+    }
+  }
+  .home-hero-subtitle {
+    color: $text-muted-colour-light;
+    i {
+      color: $button-background-colour-light;
+    }
+  }
+  .home-hero-description {
+    color: $text-muted-colour-light;
+  }
+  .home-hero-button {
+    &.primary {
+      background: $button-background-colour-light;
+      color: #171513;
+
+      &:hover {
+        background: $button-background-hover-colour-light;
+        transform: translateY(-3px);
+      }
+    }
+    &.secondary {
+      border: 1px solid rgba($button-background-colour-light, 0.5);
+      color: $text-colour-light;
+
+      &:hover {
+        border-color: $button-background-colour-light;
+        color: $button-background-colour-light;
+      }
+    }
+  }
+  .home-hero-vinyl-disc {
+    background: repeating-radial-gradient(
+      circle,
+      $border-subtle-colour-light 0px,
+      $border-subtle-colour-light 2px,
+      $border-colour-light 3px,
+      $border-subtle-colour-light 4px
+    );
+    border: 1px solid #39342c;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
+  }
+  .home-hero-vinyl-label {
+    background: $button-background-hover-colour-light;
+    border: 5px solid #24211d;
+    span {
+      color: #171513;
+    }
+  }
+  .home-hero-footer {
+    border-top: 1px solid rgba($button-background-colour-light, 0.25);
+    color: #8c8171;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-hero {
+    min-height: calc(80vh - 100px);
+    padding: 7px 7%;
+
+    .home-hero-vinyl {
+      width: 200px;
+      right: -65px;
+      top: 55%;
+      opacity: 0.25;
+    }
+
+    .home-hero-content {
+      width: 100%;
+      .home-hero-title {
+        font-size: clamp(50px, 8vw, 70px);
+      }
+    }
+
+    .home-hero-footer {
+      left: 7%;
+      right: 7%;
+      font-size: 7px;
+      letter-spacing: 1px;
+      gap: 8px;
+    }
+  }
+}
+
+.about-page {
+  width: 100%;
+  min-height: 100%;
+  padding: 0;
+  font-family: $text-font;
+  box-sizing: border-box;
+
+  // =========================================================
+  // HERO
+  // =========================================================
+
+  .about-hero {
+    width: 100%;
+    min-height: 75vh;
+    padding: 100px 7%;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    align-items: center;
+    gap: 60px;
+    box-sizing: border-box;
+
+    .about-hero-heading {
+      max-width: 850px;
+
+      .about-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+        font-family: $display-font;
+        font-size: 14px;
+        letter-spacing: 3px;
+      }
+
+      .about-eyebrow::before {
+        content: "";
+        width: 40px;
+        height: 1px;
+        flex-shrink: 0;
+        background: currentColor;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: $display-font;
+        font-size: clamp(70px, 10vw, 150px);
+        line-height: 0.82;
+        letter-spacing: -2px;
+        text-transform: uppercase;
+
+        span {
+          display: block;
+        }
+
+        span:last-child {
+          margin-left: 8%;
+        }
+      }
+    }
+
+    .about-hero-statement {
+      max-width: 420px;
+      justify-self: end;
+
+      p {
+        margin: 0;
+        font-family: $text-font;
+        font-size: clamp(18px, 2vw, 26px);
+        line-height: 1.45;
+        font-weight: 400;
+      }
+    }
+  }
+
+  // =========================================================
+  // INTRODUCTION
+  // =========================================================
+
+  .about-introduction {
+    width: 100%;
+    padding: 100px 7%;
+    display: grid;
+    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: clamp(50px, 8vw, 120px);
+    box-sizing: border-box;
+
+    .about-introduction-image {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .about-image-placeholder {
+        width: min(100%, 460px);
+        aspect-ratio: 1 / 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        box-sizing: border-box;
+
+        span {
+          font-family: $display-font;
+          font-size: clamp(80px, 12vw, 150px);
+          letter-spacing: 4px;
+        }
+      }
+
+      .about-image-placeholder::before,
+      .about-image-placeholder::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+      }
+
+      .about-image-placeholder::before {
+        inset: 15px;
+        border: 1px solid currentColor;
+        opacity: 0.2;
+      }
+
+      .about-image-placeholder::after {
+        width: 70%;
+        height: 1px;
+        top: 50%;
+        left: 15%;
+        background: currentColor;
+        opacity: 0.15;
+      }
+    }
+
+    .about-introduction-content {
+      max-width: 650px;
+
+      .section-label {
+        display: block;
+        margin-bottom: 20px;
+        font-family: $display-font;
+        font-size: 14px;
+        letter-spacing: 3px;
+      }
+
+      h2 {
+        margin: 0 0 35px;
+        font-family: $display-font;
+        font-size: clamp(48px, 6vw, 90px);
+        line-height: 0.9;
+        letter-spacing: -1px;
+
+        span {
+          display: inline;
+        }
+      }
+
+      p {
+        max-width: 600px;
+        margin: 0 0 22px;
+        font-family: $text-font;
+        font-size: 16px;
+        line-height: 1.75;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // =========================================================
+  // MUSICAL DNA
+  // =========================================================
+
+  .about-dna {
+    width: 100%;
+    padding: 100px 7%;
+    box-sizing: border-box;
+
+    .about-dna-heading {
+      max-width: 800px;
+      margin-bottom: 55px;
+
+      .section-label {
+        display: block;
+        margin-bottom: 18px;
+        font-family: $display-font;
+        font-size: 14px;
+        letter-spacing: 3px;
+      }
+
+      h2 {
+        margin: 0;
+        font-family: $display-font;
+        font-size: clamp(52px, 7vw, 100px);
+        line-height: 0.9;
+        letter-spacing: -1px;
+
+        span {
+          display: block;
+        }
+      }
+    }
+
+    .about-dna-grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      box-sizing: border-box;
+
+      .about-dna-item {
+        min-height: 300px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        position: relative;
+
+        .about-dna-number {
+          margin-bottom: auto;
+          font-family: $display-font;
+          font-size: 16px;
+          letter-spacing: 2px;
+        }
+
+        h3 {
+          margin: 40px 0 12px;
+          font-family: $display-font;
+          font-size: clamp(32px, 4vw, 50px);
+          line-height: 1;
+          letter-spacing: 1px;
+        }
+
+        p {
+          margin: 0;
+          font-family: $text-font;
+          font-size: 14px;
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+
+  // =========================================================
+  // MANIFESTO
+  // =========================================================
+
+  .about-manifesto {
+    width: 100%;
+    min-height: 55vh;
+    padding: 100px 7%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+
+    .about-manifesto-mark {
+      width: 65px;
+      height: 65px;
+      margin-bottom: 35px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      font-family: $display-font;
+      font-size: 22px;
+      letter-spacing: 2px;
+    }
+
+    blockquote {
+      max-width: 900px;
+      margin: 0;
+      font-family: $display-font;
+      font-size: clamp(42px, 6vw, 82px);
+      line-height: 0.95;
+      letter-spacing: -1px;
+
+      span {
+        display: block;
+      }
+    }
+
+    .about-manifesto-line {
+      width: 80px;
+      height: 0;
+      margin: 40px 0 25px;
+      box-sizing: border-box;
+    }
+
+    p {
+      margin: 0;
+      font-family: $display-font;
+      font-size: 13px;
+      letter-spacing: 3px;
+    }
+  }
+
+  // =========================================================
+  // TABLET
+  // =========================================================
+
+  @media (max-width: 900px) {
+    .about-hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+      padding: 90px 7%;
+      gap: 50px;
+
+      .about-hero-statement {
+        justify-self: start;
+        max-width: 600px;
+      }
+    }
+
+    .about-introduction {
+      grid-template-columns: 1fr;
+      gap: 60px;
+
+      .about-introduction-image {
+        justify-content: flex-start;
+      }
+
+      .about-introduction-content {
+        max-width: 700px;
+      }
+    }
+
+    .about-dna {
+      .about-dna-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  }
+
+  // =========================================================
+  // MOBILE
+  // =========================================================
+
+  @media (max-width: 600px) {
+    .about-hero {
+      min-height: auto;
+      padding: 70px 7% 80px;
+      gap: 45px;
+
+      .about-hero-heading {
+        .about-eyebrow {
+          margin-bottom: 18px;
+          font-size: 11px;
+          letter-spacing: 2px;
+        }
+
+        .about-eyebrow::before {
+          width: 25px;
+        }
+
+        h1 {
+          font-size: clamp(55px, 16vw, 85px);
+          line-height: 0.85;
+          letter-spacing: -1px;
+
+          span:last-child {
+            margin-left: 5%;
+          }
+        }
+      }
+
+      .about-hero-statement {
+        max-width: 100%;
+
+        p {
+          font-size: 18px;
+          line-height: 1.5;
+        }
+      }
+    }
+
+    .about-introduction {
+      padding: 70px 7%;
+      gap: 50px;
+
+      .about-introduction-image {
+        .about-image-placeholder {
+          width: 85%;
+          margin: 0 auto;
+
+          span {
+            font-size: 80px;
+          }
+        }
+      }
+
+      .about-introduction-content {
+        .section-label {
+          margin-bottom: 15px;
+          font-size: 11px;
+          letter-spacing: 2px;
+        }
+
+        h2 {
+          margin-bottom: 28px;
+          font-size: clamp(45px, 13vw, 70px);
+          line-height: 0.9;
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 1.7;
+          margin-bottom: 18px;
+        }
+      }
+    }
+
+    .about-dna {
+      padding: 70px 7%;
+
+      .about-dna-heading {
+        margin-bottom: 35px;
+
+        .section-label {
+          margin-bottom: 15px;
+          font-size: 11px;
+          letter-spacing: 2px;
+        }
+
+        h2 {
+          font-size: clamp(48px, 14vw, 75px);
+          line-height: 0.9;
+        }
+      }
+
+      .about-dna-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+
+        .about-dna-item {
+          min-height: 240px;
+          padding: 20px;
+
+          .about-dna-number {
+            font-size: 12px;
+          }
+
+          h3 {
+            margin: 30px 0 10px;
+            font-size: 34px;
+          }
+
+          p {
+            font-size: 12px;
+            line-height: 1.5;
+          }
+        }
+      }
+    }
+
+    .about-manifesto {
+      min-height: 60vh;
+      padding: 80px 7%;
+
+      .about-manifesto-mark {
+        width: 55px;
+        height: 55px;
+        margin-bottom: 30px;
+        font-size: 18px;
+      }
+
+      blockquote {
+        font-size: clamp(38px, 11vw, 60px);
+        line-height: 0.95;
+      }
+
+      .about-manifesto-line {
+        width: 60px;
+        margin: 30px 0 20px;
+      }
+
+      p {
+        font-size: 9px;
+        letter-spacing: 2px;
+      }
+    }
+  }
+  &.light {
+    .about-hero {
+      .about-hero-heading {
+        .about-eyebrow {
+          color: $button-background-colour-light;
+        }
+        h1 {
+          color: $button-background-colour-light;
+        }
+      }
+      .about-hero-statement {
+        p {
+          color: $text-muted-colour-light;
+        }
+      }
+    }
+    .about-introduction {
+      .about-introduction-image {
+        .about-image-placeholder {
+          span {
+            color: $text-muted-colour-light;
+          }
+        }
+      }
+      .about-introduction-content {
+        .section-label {
+          color: $button-background-colour-light;
+        }
+        h2 {
+          color: $button-background-colour-light;
+          span {
+            color: $text-colour-light;
+          }
+        }
+      }
+    }
+    .about-dna {
+      .about-dna-heading {
+        .section-label {
+          color: $button-background-colour-light;
+        }
+        h2 {
+          color: $button-background-colour-light;
+        }
+      }
+      .about-dna-grid {
+        background-color: $border-subtle-colour-light;
+        .about-dna-item {
+          .about-dna-number {
+            color: $button-background-hover-colour-light;
+          }
+          h3 {
+            color: $button-background-colour-light;
+          }
+          p {
+            color: $text-muted-colour-light;
+          }
+        }
+      }
+    }
+    .about-manifesto {
+      .about-manifesto-mark {
+        color: $button-background-colour-light;
+      }
+      blockquote {
+        color: $text-colour-light;
+      }
+      .about-manifesto-line {
+        border: 1px solid $button-background-hover-colour-light;
+      }
+      p {
+        color: $button-background-colour-light;
+      }
+    }
+  }
+  &.dark {
+    .about-hero {
+      .about-hero-heading {
+        .about-eyebrow {
+          color: $button-background-colour-dark;
+        }
+        h1 {
+          color: $button-background-colour-dark;
+        }
+      }
+      .about-hero-statement {
+        p {
+          color: $text-muted-colour-dark;
+        }
+      }
+    }
+    .about-introduction {
+      .about-introduction-image {
+        .about-image-placeholder {
+          span {
+            color: $text-muted-colour-dark;
+          }
+        }
+      }
+      .about-introduction-content {
+        .section-label {
+          color: $button-background-colour-dark;
+        }
+        h2 {
+          color: $button-background-colour-dark;
+          span {
+            color: $text-colour-dark;
+          }
+        }
+      }
+    }
+    .about-dna {
+      .about-dna-heading {
+        .section-label {
+          color: $button-background-colour-dark;
+        }
+        h2 {
+          color: $button-background-colour-dark;
+        }
+      }
+      .about-dna-grid {
+        background-color: $border-subtle-colour-dark;
+        .about-dna-item {
+          .about-dna-number {
+            color: $button-background-hover-colour-dark;
+          }
+          h3 {
+            color: $button-background-colour-dark;
+          }
+          p {
+            color: $text-muted-colour-dark;
+          }
+        }
+      }
+    }
+    .about-manifesto {
+      .about-manifesto-mark {
+        color: $button-background-colour-dark;
+      }
+      blockquote {
+        color: $text-colour-dark;
+      }
+      .about-manifesto-line {
+        border: 1px solid $button-background-hover-colour-dark;
+      }
+      p {
+        color: $button-background-colour-dark;
+      }
+    }
+  }
 }

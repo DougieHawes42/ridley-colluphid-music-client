@@ -1,9 +1,8 @@
 @import "../../assets/styles/variables.scss";
 
 .route {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-height: 80vh;
+  overflow: scroll;
 }
 
 .header-link {
