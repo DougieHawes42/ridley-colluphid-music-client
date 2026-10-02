@@ -3,12 +3,14 @@ import MustangSally from "../media/cover-art/mustang-sally.png";
 import HardToHandle from "../media/cover-art/hard-to-handle.png";
 import AllYouDangerousThings from "../media/cover-art/all-you-dangerous-things.png";
 import Kiss from "../media/cover-art/kiss.png";
+import UnchainMyHeart from "../media/cover-art/unchain-my-heart.png";
 
 import LoveIsAFireAudio from "../media/audio/love-is-a-fire.mp3";
 import MustangSallyAudio from "../media/audio/mustang-sally.mp3";
 import HardToHandleAudio from "../media/audio/hard-to-handle.mp3";
 import AllYouDangerousThingsAudio from "../media/audio/all-you-dangerous-things.mp3";
 import KissAudio from "../media/audio/kiss.mp3";
+import UnchainMyHeartAudio from "../media/audio/unchain-my-heart.mp3";
 
 export const songs = [
   {
@@ -45,6 +47,13 @@ export const songs = [
     artist: "Prince",
     image: Kiss,
     track: KissAudio,
+  },
+  {
+    id: 6,
+    title: "Unchain My Heart",
+    artist: "Ray Charles",
+    image: UnchainMyHeart,
+    track: UnchainMyHeartAudio,
   },
 ];
 

@@ -1,12 +1,32 @@
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 import "./style.scss";
 
 import { PublicRoute } from "../../utils/routes.js";
 import { useSelector } from "react-redux";
 
+import Performing1 from "../../../assets/media/layout-images/performing1.png";
+import Performing2 from "../../../assets/media/layout-images/performing2.png";
+import Performing3 from "../../../assets/media/layout-images/performing3.png";
+import Performing4 from "../../../assets/media/layout-images/performing4.png";
+
 const About = () => {
   const theme = useSelector((state) => state.theme.theme);
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const performingImages = [Performing1, Performing2, Performing3, Performing4];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex(
+        (prevIndex) => (prevIndex + 1) % performingImages.length,
+      );
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <PublicRoute>
@@ -30,22 +50,36 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.8 }}>
             <p>
-              Music isn't supposed to sit quietly in the background. It's
-              supposed to make you feel something.
+              <span>Talk is cheap</span>, but singing is priceless.
+            </p>
+            <p>
+              <span>Words have power</span>, yet music is indestructible.
+            </p>
+            <p>
+              <span>Carve words onto a wall</span>, or sing them into eternity.
+            </p>
+            <p>
+              <span>Heroes have lived only 27 years</span>, yet their souls are
+              going anywhere.
             </p>
           </motion.div>
         </section>
         <section className="about-introduction">
-          <motion.div
-            className="about-introduction-image"
-            initial={{ opacity: 0, scale: 0.94 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}>
-            <div className="about-image-placeholder">
-              <span>RC</span>
-            </div>
-          </motion.div>
+          <AnimatePresence mode="sync" initial={false}>
+            <motion.div
+              className="about-introduction-image"
+              initial={{ opacity: 0, scale: 0.94 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              style={{
+                backgroundImage: `url(${performingImages[currentImageIndex]})`,
+              }}>
+              <div className="about-image-placeholder">
+                <span>RC</span>
+              </div>
+            </motion.div>
+          </AnimatePresence>
           <motion.div
             className="about-introduction-content"
             initial={{ opacity: 0, x: 40 }}
@@ -55,16 +89,17 @@ const About = () => {
             <span className="section-label">THE ARTIST</span>
             <h2>
               A LITTLE
-              <span>GRIT.</span>A LITTLE
+              <span>GRIT. </span>A LITTLE
               <span>GLAMOUR.</span>
             </h2>
             <p>
-              Ridley Colluphid is a musical project built around the sounds that
-              refuse to disappear.
+              Ridley Colluphid is no alter ego, it's the part of me that awakens
+              when I shed the mask I wear in everyday life.
             </p>
             <p>
-              Soul. Blues. Funk. Rock 'n' roll. Music with swagger, character
-              and a little bit of danger around the edges.
+              A crucible of the legends who have got me through everything and
+              made me the person I am today. I grant myself the mission to carry
+              their spirit forward through my music.
             </p>
             <p>
               The aim isn't to recreate the past. It's to take everything that
@@ -89,27 +124,38 @@ const About = () => {
             <motion.div className="about-dna-item" whileHover={{ y: -6 }}>
               <span className="about-dna-number">01</span>
               <h3>SOUL</h3>
-              <p>Raw voices. Big feelings. Music that gets under your skin.</p>
+              <p>
+                The roots of all beauty and expression. Be it a genre or the
+                ghost in your machine, soul is at the heart of it all. When you
+                have soul, your true voice flies free.
+              </p>
             </motion.div>
             <motion.div className="about-dna-item" whileHover={{ y: -6 }}>
               <span className="about-dna-number">02</span>
               <h3>BLUES</h3>
               <p>
-                Grit, groove and the beautiful imperfection of a human
-                performance.
+                Loss, pain, sorrow, and regret; the poison in the soil where the
+                most beautiful flora grows. Nothing gives you the strength to
+                endure hard times than the knowledge you are not alone.
               </p>
             </motion.div>
             <motion.div className="about-dna-item" whileHover={{ y: -6 }}>
               <span className="about-dna-number">03</span>
               <h3>FUNK</h3>
               <p>
-                Rhythm first. Attitude second. Never stand still for too long.
+                Awakens the beast within, compelling you to move and groove with
+                an unstoppable energy. Don't say it, open your heart and let the
+                world hear your roar.
               </p>
             </motion.div>
             <motion.div className="about-dna-item" whileHover={{ y: -6 }}>
               <span className="about-dna-number">04</span>
               <h3>ROCK</h3>
-              <p>Volume up. Lights down. Let the song do the talking.</p>
+              <p>
+                "You're never alone, cos you can put on headphones and let the
+                drummer tell your heart what to do" - Meat Loaf. Rock grants the
+                anthems of rebellion and freedom.
+              </p>
             </motion.div>
           </div>
         </section>

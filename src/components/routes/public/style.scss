@@ -138,10 +138,11 @@
   .home-hero-footer {
     position: absolute;
     bottom: 25px;
+    gap: 14px;
     left: 8%;
     right: 8%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding-top: 15px;
     font-size: 9px;
     letter-spacing: 3px;
@@ -329,11 +330,6 @@
   padding: 0;
   font-family: $text-font;
   box-sizing: border-box;
-
-  // =========================================================
-  // HERO
-  // =========================================================
-
   .about-hero {
     width: 100%;
     min-height: 75vh;
@@ -343,10 +339,8 @@
     align-items: center;
     gap: 60px;
     box-sizing: border-box;
-
     .about-hero-heading {
       max-width: 850px;
-
       .about-eyebrow {
         display: flex;
         align-items: center;
@@ -356,7 +350,6 @@
         font-size: 14px;
         letter-spacing: 3px;
       }
-
       .about-eyebrow::before {
         content: "";
         width: 40px;
@@ -364,7 +357,6 @@
         flex-shrink: 0;
         background: currentColor;
       }
-
       h1 {
         margin: 0;
         font-family: $display-font;
@@ -372,35 +364,25 @@
         line-height: 0.82;
         letter-spacing: -2px;
         text-transform: uppercase;
-
         span {
           display: block;
         }
-
         span:last-child {
           margin-left: 8%;
         }
       }
     }
-
     .about-hero-statement {
-      max-width: 420px;
+      max-width: 500px;
       justify-self: end;
-
       p {
         margin: 0;
         font-family: $text-font;
-        font-size: clamp(18px, 2vw, 26px);
-        line-height: 1.45;
+        font-size: 21px;
         font-weight: 400;
       }
     }
   }
-
-  // =========================================================
-  // INTRODUCTION
-  // =========================================================
-
   .about-introduction {
     width: 100%;
     padding: 100px 7%;
@@ -409,13 +391,14 @@
     align-items: center;
     gap: clamp(50px, 8vw, 120px);
     box-sizing: border-box;
-
     .about-introduction-image {
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-
+      background-size: cover;
+      background-position: center;
+      max-width: 460px;
       .about-image-placeholder {
         width: min(100%, 460px);
         aspect-ratio: 1 / 1;
@@ -424,27 +407,23 @@
         align-items: center;
         position: relative;
         box-sizing: border-box;
-
         span {
           font-family: $display-font;
           font-size: clamp(80px, 12vw, 150px);
           letter-spacing: 4px;
         }
       }
-
       .about-image-placeholder::before,
       .about-image-placeholder::after {
         content: "";
         position: absolute;
         pointer-events: none;
       }
-
       .about-image-placeholder::before {
         inset: 15px;
         border: 1px solid currentColor;
         opacity: 0.2;
       }
-
       .about-image-placeholder::after {
         width: 70%;
         height: 1px;
@@ -454,10 +433,8 @@
         opacity: 0.15;
       }
     }
-
     .about-introduction-content {
       max-width: 650px;
-
       .section-label {
         display: block;
         margin-bottom: 20px;
@@ -465,19 +442,16 @@
         font-size: 14px;
         letter-spacing: 3px;
       }
-
       h2 {
         margin: 0 0 35px;
         font-family: $display-font;
         font-size: clamp(48px, 6vw, 90px);
         line-height: 0.9;
         letter-spacing: -1px;
-
         span {
           display: inline;
         }
       }
-
       p {
         max-width: 600px;
         margin: 0 0 22px;
@@ -485,26 +459,18 @@
         font-size: 16px;
         line-height: 1.75;
       }
-
       p:last-child {
         margin-bottom: 0;
       }
     }
   }
-
-  // =========================================================
-  // MUSICAL DNA
-  // =========================================================
-
   .about-dna {
     width: 100%;
     padding: 100px 7%;
     box-sizing: border-box;
-
     .about-dna-heading {
       max-width: 800px;
       margin-bottom: 55px;
-
       .section-label {
         display: block;
         margin-bottom: 18px;
@@ -512,27 +478,23 @@
         font-size: 14px;
         letter-spacing: 3px;
       }
-
       h2 {
         margin: 0;
         font-family: $display-font;
         font-size: clamp(52px, 7vw, 100px);
         line-height: 0.9;
         letter-spacing: -1px;
-
         span {
           display: block;
         }
       }
     }
-
     .about-dna-grid {
       width: 100%;
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 1px;
       box-sizing: border-box;
-
       .about-dna-item {
         min-height: 300px;
         padding: 30px;
@@ -540,22 +502,19 @@
         flex-direction: column;
         box-sizing: border-box;
         position: relative;
-
         .about-dna-number {
-          margin-bottom: auto;
+          margin-bottom: 7px;
           font-family: $display-font;
-          font-size: 16px;
+          font-size: 42px;
           letter-spacing: 2px;
         }
-
         h3 {
-          margin: 40px 0 12px;
+          margin: 14px 0 12px;
           font-family: $display-font;
           font-size: clamp(32px, 4vw, 50px);
           line-height: 1;
           letter-spacing: 1px;
         }
-
         p {
           margin: 0;
           font-family: $text-font;
@@ -565,11 +524,6 @@
       }
     }
   }
-
-  // =========================================================
-  // MANIFESTO
-  // =========================================================
-
   .about-manifesto {
     width: 100%;
     min-height: 55vh;
@@ -580,7 +534,6 @@
     align-items: center;
     text-align: center;
     box-sizing: border-box;
-
     .about-manifesto-mark {
       width: 65px;
       height: 65px;
@@ -594,7 +547,6 @@
       font-size: 22px;
       letter-spacing: 2px;
     }
-
     blockquote {
       max-width: 900px;
       margin: 0;
@@ -602,19 +554,16 @@
       font-size: clamp(42px, 6vw, 82px);
       line-height: 0.95;
       letter-spacing: -1px;
-
       span {
         display: block;
       }
     }
-
     .about-manifesto-line {
       width: 80px;
       height: 0;
       margin: 40px 0 25px;
       box-sizing: border-box;
     }
-
     p {
       margin: 0;
       font-family: $display-font;
@@ -622,24 +571,17 @@
       letter-spacing: 3px;
     }
   }
-
-  // =========================================================
-  // TABLET
-  // =========================================================
-
   @media (max-width: 900px) {
     .about-hero {
       grid-template-columns: 1fr;
       min-height: auto;
       padding: 90px 7%;
       gap: 50px;
-
       .about-hero-statement {
         justify-self: start;
         max-width: 600px;
       }
     }
-
     .about-introduction {
       grid-template-columns: 1fr;
       gap: 60px;
@@ -652,61 +594,49 @@
         max-width: 700px;
       }
     }
-
     .about-dna {
       .about-dna-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
   }
-
-  // =========================================================
-  // MOBILE
-  // =========================================================
-
   @media (max-width: 600px) {
     .about-hero {
       min-height: auto;
       padding: 70px 7% 80px;
       gap: 45px;
-
       .about-hero-heading {
         .about-eyebrow {
           margin-bottom: 18px;
           font-size: 11px;
           letter-spacing: 2px;
         }
-
         .about-eyebrow::before {
           width: 25px;
         }
-
         h1 {
-          font-size: clamp(55px, 16vw, 85px);
+          font-size: 50px;
           line-height: 0.85;
           letter-spacing: -1px;
-
           span:last-child {
             margin-left: 5%;
           }
         }
       }
-
       .about-hero-statement {
         max-width: 100%;
-
         p {
           font-size: 18px;
           line-height: 1.5;
         }
       }
     }
-
     .about-introduction {
-      padding: 70px 7%;
+      padding: 0 7%;
       gap: 50px;
-
       .about-introduction-image {
+        height: 280px;
+        width: 280px;
         .about-image-placeholder {
           width: 85%;
           margin: 0 auto;
@@ -716,20 +646,17 @@
           }
         }
       }
-
       .about-introduction-content {
         .section-label {
           margin-bottom: 15px;
           font-size: 11px;
           letter-spacing: 2px;
         }
-
         h2 {
           margin-bottom: 28px;
           font-size: clamp(45px, 13vw, 70px);
           line-height: 0.9;
         }
-
         p {
           font-size: 14px;
           line-height: 1.7;
@@ -737,42 +664,31 @@
         }
       }
     }
-
     .about-dna {
       padding: 70px 7%;
-
       .about-dna-heading {
         margin-bottom: 35px;
-
         .section-label {
           margin-bottom: 15px;
           font-size: 11px;
           letter-spacing: 2px;
         }
-
         h2 {
           font-size: clamp(48px, 14vw, 75px);
           line-height: 0.9;
         }
       }
-
       .about-dna-grid {
         grid-template-columns: 1fr 1fr;
         gap: 1px;
-
         .about-dna-item {
           min-height: 240px;
           padding: 20px;
 
-          .about-dna-number {
-            font-size: 12px;
-          }
-
           h3 {
-            margin: 30px 0 10px;
+            margin: 14px 0 10px;
             font-size: 34px;
           }
-
           p {
             font-size: 12px;
             line-height: 1.5;
@@ -780,28 +696,23 @@
         }
       }
     }
-
     .about-manifesto {
       min-height: 60vh;
       padding: 80px 7%;
-
       .about-manifesto-mark {
         width: 55px;
         height: 55px;
         margin-bottom: 30px;
         font-size: 18px;
       }
-
       blockquote {
         font-size: clamp(38px, 11vw, 60px);
         line-height: 0.95;
       }
-
       .about-manifesto-line {
         width: 60px;
         margin: 30px 0 20px;
       }
-
       p {
         font-size: 9px;
         letter-spacing: 2px;
@@ -821,6 +732,9 @@
       .about-hero-statement {
         p {
           color: $text-muted-colour-light;
+          span {
+            color: $button-background-colour-light;
+          }
         }
       }
     }
@@ -828,7 +742,7 @@
       .about-introduction-image {
         .about-image-placeholder {
           span {
-            color: $text-muted-colour-light;
+            color: $button-background-colour-light;
           }
         }
       }
@@ -896,6 +810,9 @@
       .about-hero-statement {
         p {
           color: $text-muted-colour-dark;
+          span {
+            color: $button-background-colour-dark;
+          }
         }
       }
     }
@@ -903,7 +820,7 @@
       .about-introduction-image {
         .about-image-placeholder {
           span {
-            color: $text-muted-colour-dark;
+            color: $button-background-colour-dark;
           }
         }
       }

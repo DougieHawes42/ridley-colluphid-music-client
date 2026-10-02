@@ -370,21 +370,21 @@
   }
 
   .mode-toggle {
-    bottom: $padding1 * 10;
+    bottom: $padding1 * 12;
   }
 
   .music-player {
     .music-player-record {
-      bottom: 150px;
+      bottom: 164px;
     }
     .music-player-selection {
-      bottom: 150px;
+      bottom: 164px;
     }
     .music-player-controls {
-      padding-bottom: $padding1 * 12;
+      padding-bottom: $padding1 * 14;
 
       .music-player-controls-toggle {
-        bottom: $padding1 * 10;
+        bottom: $padding1 * 12;
       }
     }
   }
