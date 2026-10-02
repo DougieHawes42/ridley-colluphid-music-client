@@ -90,7 +90,6 @@
 .header.light {
   color: $text-colour-light;
 }
-
 .music-player {
   .music-player-record {
     background-color: $text-colour-light;
@@ -102,8 +101,8 @@
     min-height: $player-controls-height * 3;
     position: absolute;
     transition:
-      bottom 0.3s ease,
-      background-color 0.3s ease;
+      bottom 0.6s ease,
+      background-color 0.6s ease;
     width: $player-width;
     .music-player-record-inner {
       background-size: cover;
@@ -160,7 +159,7 @@
     left: $padding1;
     min-height: $player-controls-height * 1.5;
     position: absolute;
-    transition: bottom 0.3s ease;
+    transition: bottom 0.6s ease;
     width: $player-width;
     .music-player-selection-track {
       height: 50px;
@@ -271,8 +270,6 @@
       right: $padding1;
     }
   }
-}
-.music-player {
   &.dark {
     * {
       border-color: $button-background-colour-dark !important;
@@ -369,6 +366,26 @@
     .header-title {
       font-size: 42px;
       letter-spacing: 6px;
+    }
+  }
+
+  .mode-toggle {
+    bottom: $padding1 * 10;
+  }
+
+  .music-player {
+    .music-player-record {
+      bottom: 140px;
+    }
+    .music-player-selection {
+      bottom: 140px;
+    }
+    .music-player-controls {
+      padding-bottom: $padding1 * 10;
+
+      .music-player-controls-toggle {
+        bottom: $padding1 * 8;
+      }
     }
   }
 }
