@@ -375,16 +375,16 @@
 
   .music-player {
     .music-player-record {
-      bottom: 140px;
+      bottom: 150px;
     }
     .music-player-selection {
-      bottom: 140px;
+      bottom: 150px;
     }
     .music-player-controls {
-      padding-bottom: $padding1 * 10;
+      padding-bottom: $padding1 * 12;
 
       .music-player-controls-toggle {
-        bottom: $padding1 * 8;
+        bottom: $padding1 * 10;
       }
     }
   }
